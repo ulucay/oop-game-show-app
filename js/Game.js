@@ -11,7 +11,7 @@ class Game{
     */
     createPhrases(){
         const phrases = [
-            new Phrase('how are you'),
+            new Phrase('how Are you'),
             new Phrase('cupcake'),
             new Phrase('kagan'),
             new Phrase('allyson'),
@@ -27,7 +27,7 @@ class Game{
     */
     
     getRandomPhrase(){
-        return this.phrases[Math.floor(Math.random() * 6)]; 
+        return this.phrases[Math.floor(Math.random() * 5)]; 
     }
 
     startGame(){
