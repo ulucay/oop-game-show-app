@@ -8,8 +8,17 @@ class Phrase{
     */
     addPhraseToDisplay(){
         const letters = [...this.phrase];
-        console.log(letters);
+        const phraseList = document.querySelector('#phrase ul');
         
+        letters.forEach(letter => {
+
+            if(letter == ' '){
+                phraseList.innerHTML += `<li class="space"> </li>`;
+            }
+            else{
+                phraseList.innerHTML += `<li class="hide letter ${letter}">${letter}</li>`;
+            }
+        });
         
     }
 

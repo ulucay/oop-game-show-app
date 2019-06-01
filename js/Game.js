@@ -12,8 +12,8 @@ class Game{
     createPhrases(){
         const phrases = [
             new Phrase('how Are you'),
-            new Phrase('cupcake'),
-            new Phrase('kagan'),
+            new Phrase('cupcake ulucay'),
+            new Phrase('kagan ulucay'),
             new Phrase('allyson'),
             new Phrase('keke')
         ];
@@ -30,8 +30,14 @@ class Game{
         return this.phrases[Math.floor(Math.random() * 5)]; 
     }
 
+    /**
+    * Begins game by selecting a random phrase and displaying it to user
+    */
     startGame(){
-
+        const overlay = document.querySelector('#overlay');
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+        overlay.style.display = 'none';
     }
 
     handleInteraction(){

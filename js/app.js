@@ -1,6 +1,7 @@
-const game = new Game();
-game.phrases.forEach((phrase, index) => {
-    console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-});
+let game;
+const startButton = document.querySelector('#btn__reset');
 
-game.getRandomPhrase().addPhraseToDisplay();
+startButton.addEventListener('click',() => {
+    game = new Game();
+    game.startGame();
+});
