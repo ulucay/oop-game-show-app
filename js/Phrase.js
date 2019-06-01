@@ -11,7 +11,6 @@ class Phrase{
         const phraseList = document.querySelector('#phrase ul');
         
         letters.forEach(letter => {
-
             if(letter == ' '){
                 phraseList.innerHTML += `<li class="space"> </li>`;
             }
@@ -22,11 +21,26 @@ class Phrase{
         
     }
 
-    checkLetter(){
-
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+    checkLetter(userLetter){
+        for(let i = 0 ; i < this.phrase.length ; i++){
+            if(this.phrase[i] == userLetter){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 
-    showMatchedLetter(){
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter){
 
     }
     
