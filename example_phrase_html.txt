@@ -13,3 +13,13 @@
         <li class="hide letter u">u</li>
     </ul>
 </div>
+
+const listElements = document.querySelectorAll('#phrase ul li');
+        for(let i = 0 ; i < this.phrase.length ; i++){
+            if(this.phrase[i] == userLetter){
+                listElements[i].classList.remove('hide').add('show');
+            }
+            else{
+                return false;
+            }
+        }

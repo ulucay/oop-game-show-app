@@ -31,7 +31,7 @@ class Phrase{
                 return true;
             }
             else{
-                return false;
+                return false
             }
         }
     }
@@ -40,8 +40,14 @@ class Phrase{
     * Displays passed letter on screen after a match is found
     * @param (string) letter - Letter to display
     */
-    showMatchedLetter(letter){
-
+    showMatchedLetter(userLetter){
+        const listElements = document.querySelectorAll('#phrase ul li');
+        for(let i = 0 ; i < this.phrase.length ; i++){
+            if(this.phrase[i] == userLetter){
+                listElements[i].classList.remove('hide');
+                listElements[i].classList.add('show');
+            }
+        }
     }
     
 }
