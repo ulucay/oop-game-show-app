@@ -50,7 +50,7 @@ class Game{
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife(){
-
+        let heartImages = document.querySelectorAll("#scoreboard ol li img");
     }
 
     /**
@@ -59,7 +59,17 @@ class Game{
     won
     */
     checkForWin(){
-
+        const phrase = document.querySelectorAll("#phrase ul li.show");
+        let flag = false;
+        for(let i = 0; i < phrase.length; i++){
+             if(phrase[i].className.includes("show")){
+                 flag = true;
+             }
+             else{
+                 flag = false;
+             }
+        }
+        return flag;
     }
 
     /**
