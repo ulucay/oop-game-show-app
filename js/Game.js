@@ -51,6 +51,11 @@ class Game{
     */
     removeLife(){
         let heartImages = document.querySelectorAll("#scoreboard ol li img");
+        heartImages[this.missed].src = "images/lostHeart.png";
+        this.missed++;
+        if(this.missed === 5){
+            this.gameOver();
+        }
     }
 
     /**
@@ -77,6 +82,13 @@ class Game{
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(){
-
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = "flex";
+        if(this.checkForWin() == true){
+            overlay.className = "win";
+        }
+        else{
+            overlay.className = "lose";
+        }
     }
 }
