@@ -54,7 +54,7 @@ class Game{
         heartImages[this.missed].src = "images/lostHeart.png";
         this.missed++;
         if(this.missed === 5){
-            this.gameOver();
+            this.gameOver(false);
         }
     }
 
@@ -81,10 +81,10 @@ class Game{
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
     */
-    gameOver(){
+    gameOver(gameWon){
         const overlay = document.querySelector('#overlay');
         overlay.style.display = "flex";
-        if(this.checkForWin() == true){
+        if(gameWon == true){
             overlay.className = "win";
         }
         else{
