@@ -40,8 +40,12 @@ class Game{
         overlay.style.display = 'none';
     }
 
-    handleInteraction(){
-
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(button){
+        console.log(button);
     }
 
     /**
@@ -82,13 +86,16 @@ class Game{
     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon){
+        const gameOverMessage = document.querySelector("#game-over-message");
         const overlay = document.querySelector('#overlay');
         overlay.style.display = "flex";
         if(gameWon == true){
             overlay.className = "win";
+            gameOverMessage.innerHTML = "Great job!"
         }
         else{
             overlay.className = "lose";
+            gameOverMessage.innerHTML = "Sorry, better luck next time!"
         }
     }
 }
