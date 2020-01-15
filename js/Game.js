@@ -45,8 +45,6 @@ class Game{
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button){
-        console.log(button);
-        
         if(!this.activePhrase.phrase.includes(button.innerHTML)){
             button.className += " wrong";
             this.removeLife();
@@ -54,6 +52,9 @@ class Game{
         else{
             button.className += " chosen";
             this.activePhrase.showMatchedLetter(button.innerHTML);
+            if(this.checkForWin() === true){
+                this.gameOver(true);
+            };
         }
     }
 
@@ -77,17 +78,9 @@ class Game{
     won
     */
     checkForWin(){
-        const phrase = document.querySelectorAll("#phrase ul li.show");
-        let flag = false;
-        for(let i = 0; i < phrase.length; i++){
-             if(phrase[i].className.includes("show")){
-                 flag = true;
-             }
-             else{
-                 flag = false;
-             }
-        }
-        return flag;
+        const phrase = document.querySelectorAll("#phrase ul li.letter");
+        const chosenLetters = document.querySelectorAll("#phrase ul li.show");
+        return (phrase.length === chosenLetters.length);
     }
 
     /**
