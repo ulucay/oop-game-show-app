@@ -11,6 +11,8 @@ screenKeyboard.forEach( keyboardButton => {
     keyboardButton.addEventListener('click', (e) => {
         game.handleInteraction(e.target);
     });
-})
+});
+
+
 
 

@@ -46,6 +46,15 @@ class Game{
     */
     handleInteraction(button){
         console.log(button);
+        
+        if(!this.activePhrase.phrase.includes(button.innerHTML)){
+            button.className += " wrong";
+            this.removeLife();
+        }
+        else{
+            button.className += " chosen";
+            this.activePhrase.showMatchedLetter(button.innerHTML);
+        }
     }
 
     /**
