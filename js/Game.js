@@ -11,11 +11,11 @@ class Game{
     */
     createPhrases(){
         const phrases = [
-            new Phrase('how Are you'),
-            new Phrase('cupcake ulucay'),
-            new Phrase('kagan ulucay'),
-            new Phrase('allyson'),
-            new Phrase('keke')
+            new Phrase('May the Force be with you'),
+            new Phrase('My mama always said life was like a box of chocolates'),
+            new Phrase('The stuff that dreams are made of'),
+            new Phrase('Hasta la vista baby'),
+            new Phrase('You talking to me'),
         ];
 
         return phrases;
@@ -92,12 +92,38 @@ class Game{
         const overlay = document.querySelector('#overlay');
         overlay.style.display = "flex";
         if(gameWon == true){
+            this.resetGame();
             overlay.className = "win";
             gameOverMessage.innerHTML = "Great job!"
         }
         else{
+            this.resetGame();
             overlay.className = "lose";
             gameOverMessage.innerHTML = "Sorry, better luck next time!"
         }
     }
+
+    resetGame(){
+        //Removes letter and spaces
+        let letters = document.querySelectorAll('#phrase ul li.letter');
+        for (let letter of letters) {
+            letter.parentNode.removeChild(letter);
+        }
+
+        // Reset Keys
+        let keys = document.querySelectorAll('.key');
+        for (let key of keys) {
+            key.disabled = false;
+            key.className = 'key';
+        }
+
+        // Reset Lives
+        let lives = document.querySelectorAll('.tries img');
+        for (let life of lives) {
+            life.src = 'images/liveHeart.png';
+        }
+
+        this.missed = 0;
+    }
+    
 }
