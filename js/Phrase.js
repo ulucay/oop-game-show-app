@@ -12,13 +12,12 @@ class Phrase{
         
         letters.forEach(letter => {
             if(letter == ' '){
-                phraseList.innerHTML += `<li class="space"> </li>`;
+                phraseList.innerHTML += `<li class="space"></li>`;
             }
             else{
                 phraseList.innerHTML += `<li class="hide letter ${letter}">${letter}</li>`;
             }
         });
-        
     }
 
     /**

@@ -11,11 +11,13 @@ class Game{
     */
     createPhrases(){
         const phrases = [
-            new Phrase('May the Force be with you'),
-            new Phrase('My mama always said life was like a box of chocolates'),
-            new Phrase('The stuff that dreams are made of'),
-            new Phrase('Hasta la vista baby'),
-            new Phrase('You talking to me'),
+            new Phrase('Austin'),
+            new Phrase('Houston'),
+            new Phrase('Dallas'),
+            new Phrase('El Paso'),
+            new Phrase('San Antonio'),
+            new Phrase('Lubbock'),
+            new Phrase('Amarillo'),
         ];
 
         return phrases;
@@ -27,7 +29,7 @@ class Game{
     */
     
     getRandomPhrase(){
-        return this.phrases[Math.floor(Math.random() * 5)]; 
+        return this.phrases[Math.floor(Math.random() * this.phrases.length)]; 
     }
 
     /**
@@ -92,20 +94,20 @@ class Game{
         const overlay = document.querySelector('#overlay');
         overlay.style.display = "flex";
         if(gameWon == true){
-            this.resetGame();
             overlay.className = "win";
-            gameOverMessage.innerHTML = "Great job!"
+            gameOverMessage.innerHTML = "Great job!";
+            this.resetGame();
         }
         else{
-            this.resetGame();
             overlay.className = "lose";
-            gameOverMessage.innerHTML = "Sorry, better luck next time!"
+            gameOverMessage.innerHTML = "Sorry, better luck next time!";
+            this.resetGame();
         }
     }
 
     resetGame(){
         //Removes letter and spaces
-        let letters = document.querySelectorAll('#phrase ul li.letter');
+        let letters = document.querySelectorAll('#phrase ul li');
         for (let letter of letters) {
             letter.parentNode.removeChild(letter);
         }
