@@ -105,26 +105,32 @@ class Game{
         }
     }
 
+    /**
+    * Removes letters and spaces to create new game
+    * Resets keys and lives
+    * Restarts the game
+    */
     resetGame(){
-        //Removes letter and spaces
+        //Removes letters and spaces
         let letters = document.querySelectorAll('#phrase ul li');
         for (let letter of letters) {
             letter.parentNode.removeChild(letter);
         }
 
-        // Reset Keys
+        // Resets keys
         let keys = document.querySelectorAll('.key');
         for (let key of keys) {
             key.disabled = false;
             key.className = 'key';
         }
 
-        // Reset Lives
+        // Resets lives
         let lives = document.querySelectorAll('.tries img');
         for (let life of lives) {
             life.src = 'images/liveHeart.png';
         }
-
+        
+        //Resets the missed variable
         this.missed = 0;
     }
     
