@@ -111,26 +111,22 @@ class Game{
     * Restarts the game
     */
     resetGame(){
-        //Removes letters and spaces
         let letters = document.querySelectorAll('#phrase ul li');
         for (let letter of letters) {
             letter.parentNode.removeChild(letter);
         }
 
-        // Resets keys
         let keys = document.querySelectorAll('.key');
         for (let key of keys) {
             key.disabled = false;
             key.className = 'key';
         }
 
-        // Resets lives
         let lives = document.querySelectorAll('.tries img');
         for (let life of lives) {
             life.src = 'images/liveHeart.png';
         }
         
-        //Resets the missed variable
         this.missed = 0;
     }
     
