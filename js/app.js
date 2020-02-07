@@ -16,11 +16,13 @@ screenKeyboard.forEach( keyboardButton => {
 });
 
 //Handles interaction for keyboard
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", event => {
     if (event.keyCode > 64 && event.keyCode < 91) {
         for (let i = 0; i < screenKeyboard.length; i++) {
             if (screenKeyboard[i].textContent === event.key) {
+                console.log(event.key)
                 game.handleInteraction(screenKeyboard[i]);
+                
             }
         }
     }

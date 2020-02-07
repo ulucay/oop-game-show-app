@@ -47,16 +47,19 @@ class Game{
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button){
-        if(!this.activePhrase.phrase.includes(button.innerHTML)){
-            button.className += " wrong";
-            this.removeLife();
-        }
-        else{
-            button.className += " chosen";
-            this.activePhrase.showMatchedLetter(button.innerHTML);
-            if(this.checkForWin() === true){
-                this.gameOver(true);
-            };
+        if(button.disabled != true){
+            button.disabled = true;
+            if(!this.activePhrase.phrase.includes(button.innerHTML)){
+                button.className += " wrong";
+                this.removeLife();
+            }
+            else{
+                button.className += " chosen";
+                this.activePhrase.showMatchedLetter(button.innerHTML);
+                if(this.checkForWin() === true){
+                    this.gameOver(true);
+                };
+            }
         }
     }
 
